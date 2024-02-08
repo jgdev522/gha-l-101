@@ -1,0 +1,22 @@
+name: Artifact
+
+on: [push]
+
+env:
+  FILE_NAME: artifact
+
+jobs:
+  checkout:
+    name: Checkout
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out Code
+      uses: actions/checkout@v2
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: linux
+        path: ./${{ env.FILE_NAME }}.txt
+  
