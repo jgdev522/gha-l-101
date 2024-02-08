@@ -6,8 +6,8 @@ env:
   FILE_NAME: artifact
 
 jobs:
-  checkout:
-    name: Checkout
+  job1:
+    name: main
     runs-on: ubuntu-latest
     steps:
 
@@ -17,6 +17,6 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: linux
+        name: ${{ env.FILE_NAME }}
         path: ./${{ env.FILE_NAME }}.txt
   
